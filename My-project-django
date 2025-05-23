@@ -1,7 +1,8 @@
-FROM python 3.9
-WORKDIR /app/backend
-COPY requirements.txt /app/backend
-RUN pip install -r requirements.txt
-COPY . /app/backend
-EXPOSE 80 
-CMD ["python", "/app/backend/manage.py", "runserver", "0.0.0.0:8000"]
+FROM python 3.9 #base image to run django notes application
+WORKDIR /app/backend #set the workingdirectory
+COPY requirements.txt /app/backend #copies requirements.txt into current directory
+RUN pip install -r requirements.txt #install pip inside requirements.txt
+COPY . /app/backend # copies all files from host machine to current working directory
+EXPOSE 80 # exposes port 80
+CMD ["python", "/app/backend/manage.py", "runserver", "0.0.0.0:8000"] # it will be executed when the container starts and runs Django 
+development server using manage.py runserver, 0.0.0.0:8000 means Listen on all IP addresses on port 8000.
