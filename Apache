@@ -1,5 +1,5 @@
-FROM ubuntu
-RUN apt-get update && apt-get install apache2
-COPY index.html var/www/html
-EXPOSE 80
-CMD ["usr/sbin/apache", "-D", "Foreground"]
+FROM ubuntu #pull the base
+RUN apt-get update && apt-get install apache2 #update and install apache2
+COPY index.html var/www/html #copy your index.html to the correct location
+EXPOSE 80 #exposing port 80
+CMD ["usr/sbin/apache", "-D", "FOREGROUND"] #run Apache in the foreground
